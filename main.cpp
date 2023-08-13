@@ -19,7 +19,7 @@ std::wstring SelectDll() {
 	ofn.lpstrFile = szFile;
 	ofn.lpstrFile[0] = '\0';
 	ofn.nFilterIndex = 1;
-	ofn.nMaxFile = sizeof(szFile);
+	ofn.nMaxFile = MAX_PATH;
 	ofn.lpstrFilter = L"DLL File\0*.dll";
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;
@@ -149,7 +149,7 @@ int main() {
 
 	HookBypass::LoadLib();
 	if (!HookBypass::BypassCSGO_hook()) {
-		MessageBoxW(0, L"Filed to bypass VAC hook!", L"Filed to bypass VAC hook!", 0);
+		MessageBoxW(0, L"Failed to bypass VAC hook!", L"Failed to bypass VAC hook!", 0);
 		return 0;
 	}
 
@@ -158,7 +158,7 @@ int main() {
 	}
 
 	if (!HookBypass::RestoreCSGO_hook()) {
-		MessageBoxW(0, L"Filed to Restore VAC hook!\nThis may result in VAC banning", L"WARN", 0);
+		MessageBoxW(0, L"Failed to Restore VAC hook!\nThis may result in VAC banning", L"WARN", 0);
 	}
 
 	return 0;
