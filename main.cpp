@@ -161,5 +161,6 @@ int main() {
 		MessageBoxW(0, L"Failed to Restore VAC hook!\nThis may result in VAC banning", L"WARN", 0);
 	}
 
+	CloseHandle(hCSGO);
 	return 0;
 }
