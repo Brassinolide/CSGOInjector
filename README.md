@@ -7,6 +7,6 @@ Using x32 build to use the CSGO injector
 
 ![img](./img.png)
 
-Using x62 build to use the CS:2 injector
+Using x64 build to use the CS:2 injector
 
 ![img2](./img2.png)
