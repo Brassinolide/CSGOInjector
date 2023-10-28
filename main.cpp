@@ -4,7 +4,11 @@
 HANDLE hCSGO;
 
 void OpenCSGO() {
+#ifdef _WIN64
+	HWND hwGame = FindWindowW(0, L"Counter-Strike 2");
+#else
 	HWND hwGame = FindWindowW(0, L"Counter-Strike: Global Offensive - Direct3D 9");
+#endif
 	if (!hwGame) return;
 	DWORD pid;
 	GetWindowThreadProcessId(hwGame, &pid);
@@ -133,7 +137,11 @@ namespace HookBypass {
 }
 
 int main() {
-	SetConsoleTitleW(L"CSGOInjector");
+#ifdef _WIN64
+	SetConsoleTitleW(L"CS:2 Injector");
+#else
+	SetConsoleTitleW(L"CSGO Injector");
+#endif
 
 	OpenCSGO();
 	if (!hCSGO) {
